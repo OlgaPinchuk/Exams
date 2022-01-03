@@ -16,19 +16,12 @@
 
 const getValueBetween = (str, prefix, suffix) => {
   const prefixIndex = str.indexOf(prefix);
-  if (prefixIndex === -1) {
+  const suffixIndex = suffix && str.indexOf(suffix, prefixIndex);
+  if (prefixIndex === -1 || suffixIndex === -1) {
     return "";
   } else {
     const startPosition = prefixIndex + prefix.length;
-    str = str.substring(startPosition);
-    if (suffix) {
-      const suffixIndex  = str.indexOf(suffix);
-      if (suffixIndex === -1) {
-        return "";
-      } else {
-        str = str.substring(0, suffixIndex);
-      }
-    }
+    str = str.substring(startPosition, suffixIndex);
   }
   return str;
 };
