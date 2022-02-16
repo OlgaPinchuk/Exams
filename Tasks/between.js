@@ -24,7 +24,7 @@ const getValueBetween = (str, from, to) => {
   const start = str.indexOf(from);
   const end = to && str.indexOf(to);
   if (start === -1 || end === -1) return '';
-  let startIndex = start + from.length;
+  const startIndex = start + from.length;
   return str.substring(startIndex, end);
 };
 
